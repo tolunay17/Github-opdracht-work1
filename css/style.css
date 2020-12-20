@@ -452,6 +452,7 @@ form input {
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 3rem;
+    justify-content: center;
   }
 }
 
@@ -603,10 +604,33 @@ form input {
   display: none;
 }
 
-.artist-all-two article:nth-child(-n+3) {
+.artist-all-two article:nth-child(1),
+.artist-all-two article:nth-child(2),
+.artist-all-two article:nth-child(3) {
   display: block;
+  margin: 0.5rem;
 }
 
+.artist-all-two .artist-all {
+  display: flex;
+  flex-direction: row;
+}
+
+.artist-all-two .artist-all .artist {
+  width: 100%;
+}
+
+@media(min-width: 48rem) {
+  .artist-all-two .artist-all.artist li {
+    width: 47%;
+  }
+}
+
+@media(min-width: 64rem) {
+  .artist-all-two .artist-all .artist li {
+    width: 30%;
+  }
+}
 
 .artist img {
   width: 100%;
@@ -687,28 +711,62 @@ form input {
   padding: 0.3rem
 }
 
+.container__ul li p {}
+
+.container__ul li svg {}
+
+.container__ul li p {
+  padding-left: 4rem;
+  padding-right: 2rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0.5rem;
+  display: none;
+}
+
 @media (min-width: 64rem) {
   .container__ul {
     padding-left: 5rem;
     padding-right: 5rem;
+
   }
 
-  .container__ul li svg {
-    border: none;
+  .list-icon svg {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.3rem;
+    position: absolute;
+    left: 1rem;
   }
 
-  .container__ul li {
-    width: 100%;
-    max-width: 10rem;
+  .list-icon {
+    border: 3px solid black;
+    margin-bottom: 1rem;
   }
 
   .container__ul li p {
-    border: 3px solid black;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    display: block;
+  }
+
+  .container__ul li {
+    list-style-type: none;
+    padding-bottom: 1rem;
+    position: relative;
+  }
+
+  .container__ul li svg {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    position: absolute;
+    top: 0rem;
+  }
+
+  .container__ul li a svg {
+    top: -1rem;
   }
 }
+
+
 
 .cont-list {
   display: flex;
@@ -780,6 +838,7 @@ form input {
 
   .container__two-ul li {
     width: 50%;
+    font-size: 1.5rem;
     padding-right: 2.5rem;
   }
 

@@ -156,7 +156,7 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
       })
       let html = this.categories.map((category) => {
         return`
-        <li><a href="detail.html#${category}">${category}</a></li>
+        <li><a href="dag.html#${category}">${category}</a></li>
         `
       }).join('');
       return this.$container.innerHTML = html;
@@ -169,8 +169,7 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
         });
         const listItems = filteredEvents.map((event) => {
           return `
-          
-          <li><article>
+          <li><article class="artist">
               <img src="${event.image !== null ? event.image.thumb : "_static/media/default.jpg"}">
               <div class="artist-time">
                 <h3>${event.start} u.</h3>
