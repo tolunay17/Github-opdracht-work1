@@ -472,7 +472,7 @@ form input {
   margin: 1.5rem
 }
 
-@media screen and (min-width: 48rem) {
+@media (min-width: 48rem) {
   .artist {
     position: relative;
     margin: 1.5rem;
@@ -951,7 +951,7 @@ form input {
 
 .footer-top img {
   width: 100%;
-  max-width: 10rem;
+  max-width: 13rem;
   background: white;
   margin-left: 2rem;
   padding-left: 2rem;

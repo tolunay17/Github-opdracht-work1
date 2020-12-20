@@ -20,7 +20,7 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
       this.$button2 = document.querySelector('.mobile-close');
       this.$event = document.querySelector('.artist-all-two')
       this.$container = document.querySelector('.container__ul');
-      this.$container = document.querySelector('.container__two');
+      this.$container = document.querySelector('.container__two-ul');
       this.$gridContent = document.querySelector('.gridContent');
     },
     buildUI() {
@@ -107,14 +107,14 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
         event.map(short => {
             if (short.day === type) {
               tempStr += `
-        <article class="artist">
+        <article class="artist-sec">
         <ul><li>
         <a href="${short.slug}">
         <img src="${short.image !== null ? short.image.thumb : "_static/media/default.jpg"}">
-        <div class="artist-time">
+        <div class="artist-sec-time">
         <h3>${short.start} u.</h3>
         </div>
-        <div class="artist-info">
+        <div class="artist-sec-info">
         <h3>${short.title}</h3>
         <h4>${short.location}</h4>
         </div>
@@ -150,9 +150,9 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
       console.log(this.categories);
       console.log(this.events);
       
-      let tempStr = '<ul>';
+      let tempStr = '';
       this.categories.map((event) => {
-        return this.$container.innerHTML = tempStr;
+        return this.$container.innerHTML += tempStr;
       })
       let html = this.categories.map((category) => {
         return`
@@ -169,19 +169,26 @@ const events_url = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
         });
         const listItems = filteredEvents.map((event) => {
           return `
-          <img src="${event.image !== null ? event.image.thumb : "_static/media/default.jpg"}">
-          <li>
-          ${event.title}
-          </li>
+          
+          <li><article>
+              <img src="${event.image !== null ? event.image.thumb : "_static/media/default.jpg"}">
+              <div class="artist-time">
+                <h3>${event.start} u.</h3>
+              </div>
+              <div class="artist-info">
+                <h3>${event.title}</h3>
+                <h4>${event.location}</h4>
+              </div>
+        </article></li>
           `;          
         }).join('');
         return `
-        <article class="container__cat">
-        <h2 id="${category}">${category}</h2>
-        <ul>
+        <article class="artist">
+          <h2 id="${category}">${category}</h2>
+         <ul>
         ${listItems}
-        </ul>
-        </section>`
+         </ul>
+        </article>`
       }).join('');
       this.$gridContent.innerHTML = html;
     },
